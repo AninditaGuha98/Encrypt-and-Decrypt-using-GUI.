@@ -123,7 +123,8 @@ class Encrypt_Frame(tk.Frame):
         encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
         encryption_answer.place(x=110,y=230)
 
-
+        back_button=tk.Button(self,text="BACK",relief="flat",background="Black",fg="White",bd=0,width=5,height=1,command=controller.show_frame(Home))
+        back_button.place(x=490,y=420)
 
 class Decrypt_Frame(tk.Frame):
     def __init__(self,parent,controller):
