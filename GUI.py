@@ -84,6 +84,27 @@ class Encrypt_Frame(tk.Frame):
         def leavecaesar_button(enter=1):
             Button_caesar.configure(bg="#5BC8AC")
 
+
+        def enterplayfair_button(enter=1):
+            Button_playfair.configure(bg="lavender")
+
+        def leaveplayfair_button(enter=1):
+            Button_playfair.configure(bg="#5BC8AC")
+
+
+        def entervigenere_button(enter=1):
+            Button_vigenere.configure(bg="lavender")
+
+        def leavevigenere_button(enter=1):
+            Button_vigenere.configure(bg="#5BC8AC")
+
+
+        def enterotp_button(enter=1):
+            Button_otp.configure(bg="lavender")
+
+        def leaveotp_button(enter=1):
+            Button_otp.configure(bg="#5BC8AC")
+            
         plaintext_label=tk.Label(self,text="Enter your plaintext here",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
         plaintext_label.place(x=15,y=50)
 
@@ -117,6 +138,7 @@ class Encrypt_Frame(tk.Frame):
         Button_caesar.place(x=10,y=130)
 
         Button_playfair=tk.Button(self,text="Playfair",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
+
         Button_playfair.place(x=130,y=130)
 
 
