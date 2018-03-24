@@ -78,6 +78,11 @@ class Encrypt_Frame(tk.Frame):
         w.create_line(0,125,1000,125,fill="Black",width=5)
         w.create_line(0,175,1000,175,fill="Black",width=5)
 
+        def entercaesar_button(enter=1):
+            Button_caesar.configure(bg="lavender")
+
+        def leavecaesar_button(enter=1):
+            Button_caesar.configure(bg="#5BC8AC")
 
         plaintext_label=tk.Label(self,text="Enter your plaintext here",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
         plaintext_label.place(x=15,y=50)
@@ -107,6 +112,8 @@ class Encrypt_Frame(tk.Frame):
 
 
         Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Caesar)
+        Button_caesar.bind("<Enter>",entercaesar_button)
+        Button_caesar.bind("<Leave>",leavecaesar_button)
         Button_caesar.place(x=10,y=130)
 
         Button_playfair=tk.Button(self,text="Playfair",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
@@ -120,10 +127,10 @@ class Encrypt_Frame(tk.Frame):
         Button_otp=tk.Button(self,text="One Time Pad",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
         Button_otp.place(x=370,y=130)
 
-        encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
+        encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="#5BC8AC")
         encryption_answer.place(x=110,y=230)
 
-        back_button=tk.Button(self,text="BACK",relief="flat",background="Black",fg="White",bd=0,width=5,height=1,command=controller.show_frame(Home))
+        back_button=tk.Button(self,text="BACK",relief="flat",background="#5BC8AC",fg="#5BC8AC",bd=0,width=8,height=1,command=lambda:controller.show_frame(Home))
         back_button.place(x=490,y=420)
 
 class Decrypt_Frame(tk.Frame):
