@@ -77,7 +77,7 @@ class Encrypt_Frame(tk.Frame):
         w.place(x=0,y=0)
         w.create_line(0,125,1000,125,fill="Black",width=5)
         w.create_line(0,175,1000,175,fill="Black",width=5)
-        
+
 
         plaintext_label=tk.Label(self,text="Enter your plaintext here",width=30,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
         plaintext_label.place(x=20,y=50)
@@ -109,8 +109,12 @@ class Encrypt_Frame(tk.Frame):
         Button_playfair.place(x=130,y=130)
 
 
-        Button_monoalpha=tk.Button(self,text="Monoalphabetic",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
-        Button_monoalpha.place(x=250,y=130)
+        Button_vigenere=tk.Button(self,text="Vigenere",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
+        Button_vigenere.place(x=250,y=130)
+
+
+        Button_otp=tk.Button(self,text="One Time Pad",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
+        Button_otp.place(x=370,y=130)
 
         encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
         encryption_answer.place(x=110,y=230)
