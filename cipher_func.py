@@ -18,13 +18,11 @@ def caesar_encrypt(plaintext,key):
             answer_e = answer_e +value
         return(answer_e)
 
-def caesar_decrypt():
-        ciphertext=raw_input("Enter the cipher text").lower()
-        key_d=int(raw_input("Enter the key value:"))
+def caesar_decrypt(ciphertext,key):
         answer_d=''
         for value in ciphertext:
-            value=(ord(value)-key_d)
-            if value + key_d==32:
+            value=(ord(value)-int(key))
+            if value + int(key)==32:
                 value = 32
             elif value > ord('z'):
                 value-=26
@@ -32,5 +30,5 @@ def caesar_decrypt():
                 value+=26
             value=chr(value)
             answer_d=answer_d+value
-        print(answer_d)
+        return (answer_d)
 

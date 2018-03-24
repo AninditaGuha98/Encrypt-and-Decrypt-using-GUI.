@@ -156,6 +156,7 @@ class Decrypt_Frame(tk.Frame):
         Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_Caesar)
         Button_caesar.place(x=10,y=130)
 
+
         decypher_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
         decypher_answer.place(x=110,y=230)
 
