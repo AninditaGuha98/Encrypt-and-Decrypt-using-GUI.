@@ -73,6 +73,10 @@ class Encrypt_Frame(tk.Frame):
         tk.Frame.__init__(self,parent)
 
 
+        w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
+        w.place(x=0,y=0)
+
+
         plaintext_label=tk.Label(self,text="Enter your plaintext here",width=30,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
         plaintext_label.place(x=20,y=50)
 
@@ -88,10 +92,10 @@ class Encrypt_Frame(tk.Frame):
 
         def Encipher_Caesar():
             pt=plaintext_entry.get()
-
+            key=Key_entry.get()
             #print(pt)
-            value=cipher_func.caesar_encrypt(pt)
-            Caesar_encryption_answer.configure(text=value)
+            value=cipher_func.caesar_encrypt(pt,key)
+            encryption_answer.configure(text=value)
 
 
         Button_line=tk.Button(self,width=500,height=1,bd=0,relief="flat",state="disabled",background="black")

@@ -1,14 +1,14 @@
 __author__ = 'Anindita'
 
 #Caesar Cipher encryption and decryption
-def caesar_encrypt(plaintext):
+def caesar_encrypt(plaintext,key):
         #plaintext=raw_input("Insert your text").lower()
 
         #key=int(raw_input("Enter the key value:"))
         answer_e=''
         for value in plaintext:
-            value=(ord(value)+3)
-            if value-3==32:
+            value=(ord(value)+int(key))
+            if value-int(key)==32:
                 value=32
             elif value>ord('z'):
                 value-=26
@@ -34,4 +34,3 @@ def caesar_decrypt():
             answer_d=answer_d+value
         print(answer_d)
 
-#
