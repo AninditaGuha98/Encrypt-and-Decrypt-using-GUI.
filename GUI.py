@@ -104,7 +104,7 @@ class Encrypt_Frame(tk.Frame):
 
         def leaveotp_button(enter=1):
             Button_otp.configure(bg="#5BC8AC")
-            
+
         plaintext_label=tk.Label(self,text="Enter your plaintext here",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
         plaintext_label.place(x=15,y=50)
 
@@ -138,22 +138,27 @@ class Encrypt_Frame(tk.Frame):
         Button_caesar.place(x=10,y=130)
 
         Button_playfair=tk.Button(self,text="Playfair",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
-
+        Button_playfair.bind("<Enter>",enterplayfair_button)
+        Button_playfair.bind("<Leave>",leaveplayfair_button)
         Button_playfair.place(x=130,y=130)
 
 
         Button_vigenere=tk.Button(self,text="Vigenere",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Vigenere)
+        Button_vigenere.bind("<Enter>",entervigenere_button)
+        Button_vigenere.bind("<Leave>",leavevigenere_button)
         Button_vigenere.place(x=250,y=130)
 
 
         Button_otp=tk.Button(self,text="One Time Pad",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
+        Button_otp.bind("<Enter>",enterotp_button)
+        Button_otp.bind("<Leave>",leaveotp_button)
         Button_otp.place(x=370,y=130)
 
         encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="#5BC8AC")
         encryption_answer.place(x=110,y=230)
 
-        back_button=tk.Button(self,text="BACK",relief="flat",background="#5BC8AC",fg="#5BC8AC",bd=0,width=8,height=1,command=lambda:controller.show_frame(Home))
-        back_button.place(x=490,y=420)
+        back_button=tk.Button(self,text="BACK",relief="flat",background="#5BC8AC",fg="Black",bd=0,width=10,height=2,command=lambda:controller.show_frame(Home))
+        back_button.place(x=490,y=400)
 
 class Decrypt_Frame(tk.Frame):
     def __init__(self,parent,controller):
