@@ -54,6 +54,17 @@ class Home(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
 
+        def Enter_encrypt(enter=1):
+            Button_encrypt.configure(bg="lavender")
+        def Leave_encrypt(enter=1):
+            Button_encrypt.configure(bg="#5BC8AC")
+
+
+        def Enter_decrypt(enter=1):
+            Button_decrypt.configure(bg="lavender")
+        def Leave_decrypt(enter=1):
+            Button_decrypt.configure(bg="#5BC8AC")
+            
         w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
         w.place(x=0,y=0)
 
