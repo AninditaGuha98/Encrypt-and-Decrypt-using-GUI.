@@ -105,6 +105,12 @@ class Encrypt_Frame(tk.Frame):
         def leaveotp_button(enter=1):
             Button_otp.configure(bg="#5BC8AC")
 
+        def backbutton_enter(enter=1):
+            back_button.configure(bg="lavender")
+        def backbutton_leave(enter=1):
+            back_button.configure(bg="#5BC8AC")
+
+
         plaintext_label=tk.Label(self,text="Enter your plaintext here",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
         plaintext_label.place(x=15,y=50)
 
@@ -158,6 +164,8 @@ class Encrypt_Frame(tk.Frame):
         encryption_answer.place(x=110,y=230)
 
         back_button=tk.Button(self,text="BACK",relief="flat",background="#5BC8AC",fg="Black",bd=0,width=10,height=2,command=lambda:controller.show_frame(Home))
+        back_button.bind("<Enter>",backbutton_enter)
+        back_button.bind("<Leave>",backbutton_leave)
         back_button.place(x=490,y=400)
 
 class Decrypt_Frame(tk.Frame):
