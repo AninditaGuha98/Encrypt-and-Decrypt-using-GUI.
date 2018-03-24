@@ -75,7 +75,9 @@ class Encrypt_Frame(tk.Frame):
 
         w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
         w.place(x=0,y=0)
-
+        w.create_line(0,125,1000,125,fill="Black",width=5)
+        w.create_line(0,175,1000,175,fill="Black",width=5)
+        
 
         plaintext_label=tk.Label(self,text="Enter your plaintext here",width=30,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
         plaintext_label.place(x=20,y=50)
@@ -98,17 +100,17 @@ class Encrypt_Frame(tk.Frame):
             encryption_answer.configure(text=value)
 
 
-        Button_line=tk.Button(self,width=500,height=1,bd=0,relief="flat",state="disabled",background="black")
-        Button_line.place(x=0,y=120)
 
 
-        Button_caesar=tk.Button(self,text="Caesar",width=8,height=2,font=("HELVETICA",12,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Caesar)
-        Button_caesar.place(x=20,y=150)
+        Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Caesar)
+        Button_caesar.place(x=10,y=130)
+
+        Button_playfair=tk.Button(self,text="Playfair",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
+        Button_playfair.place(x=130,y=130)
 
 
-        Button_playfair=tk.Button(self,text="Playfair",width=8,height=2,font=("HELVETICA",12,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
-        Button_playfair.place(x=130,y=150)
-
+        Button_monoalpha=tk.Button(self,text="Monoalphabetic",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
+        Button_monoalpha.place(x=250,y=130)
 
         encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
         encryption_answer.place(x=110,y=230)
