@@ -1,5 +1,5 @@
 __author__ = 'Anindita'
-import GUI
+
 #Caesar Cipher encryption and decryption
 def caesar_encrypt(plaintext):
         #plaintext=raw_input("Insert your text").lower()
