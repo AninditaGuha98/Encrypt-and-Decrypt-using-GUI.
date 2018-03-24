@@ -1,4 +1,6 @@
 __author__ = 'Anindita'
+import string
+import sys
 
 #Caesar Cipher encryption and decryption
 def caesar_encrypt(plaintext,key):
@@ -52,3 +54,31 @@ def vigenere_decipher(ciphertext,key):
         value = (ciphertext_int[i] - key_int[i % keylength]) % 26
         plaintext += chr(value + 65)
     return (plaintext)
+
+
+#One time pad encryption and decryption
+otp= string.ascii_lowercase
+one_time_pad = list(otp)
+
+def encrypt(msg, key):
+    ciphertext = ''
+    for idx, char in enumerate(msg):
+        char_ID = otp.index(char)
+        key_ID= one_time_pad.index(key[idx])
+
+        cipher = (key_ID + char_ID) % len(one_time_pad)
+        ciphertext += otp[cipher]
+
+    return ciphertext
+
+
+def decrypt(ciphertext, key):
+    if ciphertext == '' or key == '':
+        return ''
+    char_ID = otp.index(ciphertext[0])
+    key_ID = one_time_pad.index(key[0])
+
+    cipher = (char_ID - key_ID) % len(one_time_pad)
+    char = otp[cipher]
+
+    return char + decrypt(ciphertext[1:], key[1:])
