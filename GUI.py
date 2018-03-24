@@ -65,6 +65,9 @@ class Home(tk.Frame):
         Button_decrypt.place(x=330,y=150)
 
 
+
+
+
 class Encrypt_Frame(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
@@ -73,11 +76,13 @@ class Encrypt_Frame(tk.Frame):
         plaintext_label=tk.Label(self,text="Enter your plaintext here",width=20,height=1,font=("HELVETICA",12,"italic bold"),background="#5BC8AC",fg="Black")
         plaintext_label.place(x=40,y=50)
 
+
         plaintext_entry=tk.Entry(self,width=30)
         plaintext_entry.place(x=280,y=50)
 
         def Encipher_Caesar():
             pt=plaintext_entry.get()
+            print(pt)
             value=cipher_func.caesar_encrypt(pt)
             Caesar_encryption_answer.configure(text=value)
 
@@ -94,8 +99,8 @@ class Encrypt_Frame(tk.Frame):
         Button_caesar.place(x=130,y=120)
 
 
-        Caesar_encryption_answer=tk.Label(self,text=" ")
-        Caesar_encryption_answer.place(x=300,y=300)
+        Caesar_encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",12,"italic bold"),background="#5BC8AC",fg="Black")
+        Caesar_encryption_answer.place(x=110,y=230)
 
 
 
