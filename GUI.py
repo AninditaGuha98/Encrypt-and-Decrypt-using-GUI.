@@ -138,7 +138,7 @@ class Encrypt_Frame(tk.Frame):
         plaintext_entry=tk.Entry(self,width=30)
         plaintext_entry.place(x=320,y=50)
 
-        Key_label=tk.Label(self,text="Enter the key value(for caesar cipher)",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
+        Key_label=tk.Label(self,text="Enter the key value",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
         Key_label.place(x=15,y=90)
 
         Key_entry=tk.Entry(self,width=30)
@@ -205,7 +205,7 @@ class Decrypt_Frame(tk.Frame):
         ciphertext_entry=tk.Entry(self,width=30)
         ciphertext_entry.place(x=320,y=50)
 
-        Key_label=tk.Label(self,text="Enter the cipher key value(for caesar cipher)",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
+        Key_label=tk.Label(self,text="Enter the cipher key value",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
         Key_label.place(x=15,y=90)
 
         Key_entry=tk.Entry(self,width=30)
