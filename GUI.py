@@ -73,34 +73,41 @@ class Encrypt_Frame(tk.Frame):
         tk.Frame.__init__(self,parent)
 
 
-        plaintext_label=tk.Label(self,text="Enter your plaintext here",width=20,height=1,font=("HELVETICA",12,"italic bold"),background="#5BC8AC",fg="Black")
-        plaintext_label.place(x=40,y=50)
+        plaintext_label=tk.Label(self,text="Enter your plaintext here",width=30,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
+        plaintext_label.place(x=20,y=50)
 
 
         plaintext_entry=tk.Entry(self,width=30)
         plaintext_entry.place(x=280,y=50)
 
+        Key_label=tk.Label(self,text="Enter the key value(for caesar cipher)",width=30,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
+        Key_label.place(x=20,y=90)
+
+        Key_entry=tk.Entry(self,width=30)
+        Key_entry.place(x=280,y=90)
+
         def Encipher_Caesar():
             pt=plaintext_entry.get()
-            print(pt)
+
+            #print(pt)
             value=cipher_func.caesar_encrypt(pt)
             Caesar_encryption_answer.configure(text=value)
 
 
         Button_line=tk.Button(self,width=500,height=1,bd=0,relief="flat",state="disabled",background="black")
-        Button_line.place(x=0,y=80)
+        Button_line.place(x=0,y=120)
 
 
         Button_caesar=tk.Button(self,text="Caesar",width=8,height=2,font=("HELVETICA",12,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Caesar)
-        Button_caesar.place(x=20,y=120)
+        Button_caesar.place(x=20,y=150)
 
 
-        Button_caesar=tk.Button(self,text="Playfair",width=8,height=2,font=("HELVETICA",12,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
-        Button_caesar.place(x=130,y=120)
+        Button_playfair=tk.Button(self,text="Playfair",width=8,height=2,font=("HELVETICA",12,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
+        Button_playfair.place(x=130,y=150)
 
 
-        Caesar_encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",12,"italic bold"),background="#5BC8AC",fg="Black")
-        Caesar_encryption_answer.place(x=110,y=230)
+        encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
+        encryption_answer.place(x=110,y=230)
 
 
 
