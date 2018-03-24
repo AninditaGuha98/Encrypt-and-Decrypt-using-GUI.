@@ -79,18 +79,18 @@ class Encrypt_Frame(tk.Frame):
         w.create_line(0,175,1000,175,fill="Black",width=5)
 
 
-        plaintext_label=tk.Label(self,text="Enter your plaintext here",width=30,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
-        plaintext_label.place(x=20,y=50)
+        plaintext_label=tk.Label(self,text="Enter your plaintext here",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
+        plaintext_label.place(x=15,y=50)
 
 
         plaintext_entry=tk.Entry(self,width=30)
-        plaintext_entry.place(x=280,y=50)
+        plaintext_entry.place(x=320,y=50)
 
-        Key_label=tk.Label(self,text="Enter the key value(for caesar cipher)",width=30,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
-        Key_label.place(x=20,y=90)
+        Key_label=tk.Label(self,text="Enter the key value(for caesar cipher)",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
+        Key_label.place(x=15,y=90)
 
         Key_entry=tk.Entry(self,width=30)
-        Key_entry.place(x=280,y=90)
+        Key_entry.place(x=320,y=90)
 
         def Encipher_Caesar():
             pt=plaintext_entry.get()
@@ -124,6 +124,40 @@ class Encrypt_Frame(tk.Frame):
 class Decrypt_Frame(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
+
+        w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
+        w.place(x=0,y=0)
+        w.create_line(0,125,1000,125,fill="Black",width=5)
+        w.create_line(0,175,1000,175,fill="Black",width=5)
+
+
+        ciphertext_label=tk.Label(self,text="Enter your ciphertext here",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
+        ciphertext_label.place(x=15,y=50)
+
+
+        ciphertext_entry=tk.Entry(self,width=30)
+        ciphertext_entry.place(x=320,y=50)
+
+        Key_label=tk.Label(self,text="Enter the cipher key value(for caesar cipher)",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
+        Key_label.place(x=15,y=90)
+
+        Key_entry=tk.Entry(self,width=30)
+        Key_entry.place(x=320,y=90)
+
+        def Decipher_Caesar():
+            pt=ciphertext_entry.get()
+            key=Key_entry.get()
+            #print(pt)
+            value=cipher_func.caesar_decrypt(pt,key)
+            decypher_answer.configure(text=value)
+
+
+
+        Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_Caesar)
+        Button_caesar.place(x=10,y=130)
+
+        decypher_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
+        decypher_answer.place(x=110,y=230)
 
 
 app=main()
