@@ -54,6 +54,7 @@ class Home(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
 
+
         def Enter_encrypt(enter=1):
             Button_encrypt.configure(bg="lavender")
         def Leave_encrypt(enter=1):
@@ -67,14 +68,18 @@ class Home(tk.Frame):
 
         w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
         w.place(x=0,y=0)
+        w.create_rectangle(50,100,550,300,fill="#5BC8AC",width=10)
 
-        Button_encrypt=tk.Button(self,text="Encrypt",font=("HELVETICA",12,"italic bold"),width=15,height=5,bd=0,relief="flat",background="#5BC8AC",fg="Black",command=lambda:controller.show_frame(Encrypt_Frame))
+        Title_label=tk.Label(self,text="Traditional Ciphers",width=20,font=("HELVETICA",20,"italic bold"),bg="#CCD1D9",fg="Black")
+        Title_label.place(x=120,y=50)
+
+        Button_encrypt=tk.Button(self,text="Encrypt",font=("HELVETICA",12,"italic bold"),width=15,height=5,bd=2,relief="flat",background="#5BC8AC",fg="Black",command=lambda:controller.show_frame(Encrypt_Frame))
         Button_encrypt.bind("<Enter>",Enter_encrypt)
         Button_encrypt.bind("<Leave>",Leave_encrypt)
         Button_encrypt.place(x=100,y=150)
 
 
-        Button_decrypt=tk.Button(self,text="Decrypt",font=("HELVETICA",12,"italic bold"),width=15,height=5,bd=0,relief="flat",background="#5BC8AC",fg="Black",command=lambda:controller.show_frame(Decrypt_Frame))
+        Button_decrypt=tk.Button(self,text="Decrypt",font=("HELVETICA",12,"italic bold"),width=15,height=5,bd=2,relief="flat",background="#5BC8AC",fg="Black",command=lambda:controller.show_frame(Decrypt_Frame))
         Button_decrypt.bind("<Enter>",Enter_decrypt)
         Button_decrypt.bind("<Leave>",Leave_decrypt)
         Button_decrypt.place(x=330,y=150)
