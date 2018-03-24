@@ -99,7 +99,11 @@ class Encrypt_Frame(tk.Frame):
             value=cipher_func.caesar_encrypt(pt,key)
             encryption_answer.configure(text=value)
 
-
+        def Encipher_Vigenere():
+            pt=plaintext_entry.get()
+            key=Key_entry.get()
+            value=cipher_func.vigenere_encrypt(pt,key)
+            encryption_answer.configure(text=value)
 
 
         Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Caesar)
@@ -109,7 +113,7 @@ class Encrypt_Frame(tk.Frame):
         Button_playfair.place(x=130,y=130)
 
 
-        Button_vigenere=tk.Button(self,text="Vigenere",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
+        Button_vigenere=tk.Button(self,text="Vigenere",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Vigenere)
         Button_vigenere.place(x=250,y=130)
 
 
@@ -151,10 +155,19 @@ class Decrypt_Frame(tk.Frame):
             value=cipher_func.caesar_decrypt(pt,key)
             decypher_answer.configure(text=value)
 
+        def Decipher_Vigenere():
+            pt=ciphertext_entry.get()
+            key=Key_entry.get()
+            #print(pt)
+            value=cipher_func.vigenere_decipher(pt,key)
+            decypher_answer.configure(text=value)
 
 
         Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_Caesar)
         Button_caesar.place(x=10,y=130)
+
+        Button_vigenere=tk.Button(self,text="Vigenere",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_Vigenere)
+        Button_vigenere.place(x=250,y=130)
 
 
         decypher_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
