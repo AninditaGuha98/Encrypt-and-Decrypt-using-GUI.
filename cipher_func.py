@@ -60,7 +60,7 @@ def vigenere_decipher(ciphertext,key):
 otp= string.ascii_lowercase
 one_time_pad = list(otp)
 
-def encrypt(msg, key):
+def OTP_encrypt(msg, key):
     ciphertext = ''
     for idx, char in enumerate(msg):
         char_ID = otp.index(char)
@@ -72,7 +72,7 @@ def encrypt(msg, key):
     return ciphertext
 
 
-def decrypt(ciphertext, key):
+def OTP_decrypt(ciphertext, key):
     if ciphertext == '' or key == '':
         return ''
     char_ID = otp.index(ciphertext[0])

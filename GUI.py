@@ -73,13 +73,13 @@ class Home(tk.Frame):
         Title_label=tk.Label(self,text="Traditional Ciphers",width=20,font=("HELVETICA",20,"italic bold"),bg="#CCD1D9",fg="Black")
         Title_label.place(x=120,y=50)
 
-        Button_encrypt=tk.Button(self,text="Encrypt",font=("HELVETICA",12,"italic bold"),width=15,height=5,bd=2,relief="flat",background="#5BC8AC",fg="Black",command=lambda:controller.show_frame(Encrypt_Frame))
+        Button_encrypt=tk.Button(self,text="Encrypt",font=("HELVETICA",12,"italic bold"),width=15,height=5,bd=0,relief="flat",background="#5BC8AC",fg="Black",command=lambda:controller.show_frame(Encrypt_Frame))
         Button_encrypt.bind("<Enter>",Enter_encrypt)
         Button_encrypt.bind("<Leave>",Leave_encrypt)
         Button_encrypt.place(x=100,y=150)
 
 
-        Button_decrypt=tk.Button(self,text="Decrypt",font=("HELVETICA",12,"italic bold"),width=15,height=5,bd=2,relief="flat",background="#5BC8AC",fg="Black",command=lambda:controller.show_frame(Decrypt_Frame))
+        Button_decrypt=tk.Button(self,text="Decrypt",font=("HELVETICA",12,"italic bold"),width=15,height=5,bd=0,relief="flat",background="#5BC8AC",fg="Black",command=lambda:controller.show_frame(Decrypt_Frame))
         Button_decrypt.bind("<Enter>",Enter_decrypt)
         Button_decrypt.bind("<Leave>",Leave_decrypt)
         Button_decrypt.place(x=330,y=150)
@@ -198,6 +198,7 @@ class Decrypt_Frame(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
 
+
         w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
         w.place(x=0,y=0)
         w.create_line(0,125,1000,125,fill="Black",width=5)
@@ -231,6 +232,12 @@ class Decrypt_Frame(tk.Frame):
             value=cipher_func.vigenere_decipher(pt,key)
             decypher_answer.configure(text=value)
 
+        def Decipher_OTP():
+            pt=ciphertext_entry.get()
+            key=Key_entry.get()
+            value=cipher_func.OTP_decrypt(pt,key)
+            decypher_answer.configure(text=value)
+
 
         Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_Caesar)
         Button_caesar.place(x=10,y=130)
@@ -238,6 +245,9 @@ class Decrypt_Frame(tk.Frame):
         Button_vigenere=tk.Button(self,text="Vigenere",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_Vigenere)
         Button_vigenere.place(x=250,y=130)
 
+
+        Button_otp=tk.Button(self,text="One Time Pad",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_OTP)
+        Button_otp.place(x=370,y=130)
 
         decypher_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
         decypher_answer.place(x=110,y=230)
