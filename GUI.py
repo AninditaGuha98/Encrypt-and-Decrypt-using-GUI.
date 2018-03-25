@@ -157,6 +157,12 @@ class Encrypt_Frame(tk.Frame):
             value=cipher_func.vigenere_encrypt(pt,key)
             encryption_answer.configure(text=value)
 
+        def Encipher_OTP():
+            pt=plaintext_entry.get()
+            key=Key_entry.get()
+            value=cipher_func.OTP_encrypt(pt,key)
+            encryption_answer.configure(text=value)
+
 
         Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Caesar)
         Button_caesar.bind("<Enter>",entercaesar_button)
@@ -175,7 +181,7 @@ class Encrypt_Frame(tk.Frame):
         Button_vigenere.place(x=250,y=130)
 
 
-        Button_otp=tk.Button(self,text="One Time Pad",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
+        Button_otp=tk.Button(self,text="One Time Pad",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_OTP)
         Button_otp.bind("<Enter>",enterotp_button)
         Button_otp.bind("<Leave>",leaveotp_button)
         Button_otp.place(x=370,y=130)
