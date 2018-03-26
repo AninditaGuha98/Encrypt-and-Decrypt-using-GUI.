@@ -100,6 +100,7 @@ class Encrypt_Frame(tk.Frame):
         w.create_line(0,175,1000,175,fill="Black",width=5)
         w.create_rectangle(2,2,597,447,width=10)
 
+
         def entercaesar_button(enter=1):
             Button_caesar.configure(bg="lavender")
 
@@ -149,8 +150,9 @@ class Encrypt_Frame(tk.Frame):
         def Encipher_Caesar():
             pt=plaintext_entry.get()
             key=Key_entry.get()
-            #print(pt)
+            #print(pt,key)
             value=cipher_func.caesar_encrypt(pt,key)
+            #print(value)
             encryption_answer.configure(text=value)
 
         def Encipher_Vigenere():
@@ -188,8 +190,8 @@ class Encrypt_Frame(tk.Frame):
         Button_otp.bind("<Leave>",leaveotp_button)
         Button_otp.place(x=370,y=130)
 
-        encryption_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="#5BC8AC")
-        encryption_answer.place(x=110,y=230)
+        encryption_answer=tk.Label(self,text=" ",width=55,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="#5BC8AC")
+        encryption_answer.place(x=50,y=220)
 
         back_button=tk.Button(self,text="BACK",relief="flat",background="#5BC8AC",fg="Black",bd=0,width=10,height=2,command=lambda:controller.show_frame(Home))
         back_button.bind("<Enter>",backbutton_enter)
@@ -245,14 +247,12 @@ class Decrypt_Frame(tk.Frame):
         def Decipher_Caesar():
             pt=ciphertext_entry.get()
             key=Key_entry.get()
-            #print(pt)
             value=cipher_func.caesar_decrypt(pt,key)
             decypher_answer.configure(text=value)
 
         def Decipher_Vigenere():
             pt=ciphertext_entry.get()
             key=Key_entry.get()
-            #print(pt)
             value=cipher_func.vigenere_decipher(pt,key)
             decypher_answer.configure(text=value)
 
@@ -285,8 +285,8 @@ class Decrypt_Frame(tk.Frame):
         Button_otp.bind("<Leave>",leave_otp)
         Button_otp.place(x=370,y=130)
 
-        decypher_answer=tk.Label(self,text=" ",width=40,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
-        decypher_answer.place(x=110,y=230)
+        decypher_answer=tk.Label(self,text=" ",width=55,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
+        decypher_answer.place(x=50,y=220)
 
 
         back_button=tk.Button(self,text="BACK",relief="flat",background="#5BC8AC",fg="Black",bd=0,width=10,height=2,command=lambda:controller.show_frame(Home))
