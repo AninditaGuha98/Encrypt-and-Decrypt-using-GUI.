@@ -94,6 +94,7 @@ class Encrypt_Frame(tk.Frame):
         tk.Frame.__init__(self,parent)
 
 
+
         w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
         w.place(x=0,y=0)
         w.create_line(0,125,1000,125,fill="Black",width=5)
@@ -141,29 +142,29 @@ class Encrypt_Frame(tk.Frame):
         plaintext_entry=tk.Entry(self,width=30)
         plaintext_entry.place(x=320,y=50)
 
-        Key_label=tk.Label(self,text="Enter the key value",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
-        Key_label.place(x=15,y=90)
+        Keye_label=tk.Label(self,text="Enter the key value",width=35,height=1,font=("HELVETICA",10,"italic "),background="#5BC8AC",fg="Black")
+        Keye_label.place(x=15,y=90)
 
-        Key_entry=tk.Entry(self,width=30)
-        Key_entry.place(x=320,y=90)
+        Keye_entry=tk.Entry(self,width=30)
+        Keye_entry.place(x=320,y=90)
 
         def Encipher_Caesar():
             pt=plaintext_entry.get()
-            key=Key_entry.get()
+            key=Keye_entry.get()
             #print(pt,key)
             value=cipher_func.caesar_encrypt(pt,key)
-            #print(value)
+            print(value)
             encryption_answer.configure(text=value)
 
         def Encipher_Vigenere():
             pt=plaintext_entry.get()
-            key=Key_entry.get()
+            key=Keye_entry.get()
             value=cipher_func.vigenere_encrypt(pt,key)
             encryption_answer.configure(text=value)
 
         def Encipher_OTP():
             pt=plaintext_entry.get()
-            key=Key_entry.get()
+            key=Keye_entry.get()
             value=cipher_func.OTP_encrypt(pt,key)
             encryption_answer.configure(text=value)
 
@@ -190,7 +191,7 @@ class Encrypt_Frame(tk.Frame):
         Button_otp.bind("<Leave>",leaveotp_button)
         Button_otp.place(x=370,y=130)
 
-        encryption_answer=tk.Label(self,text=" ",width=55,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="#5BC8AC")
+        encryption_answer=tk.Label(self,text=" ",width=55,height=10,font=("HELVETICA",10,"bold"),background="#5BC8AC",fg="Black")
         encryption_answer.place(x=50,y=220)
 
         back_button=tk.Button(self,text="BACK",relief="flat",background="#5BC8AC",fg="Black",bd=0,width=10,height=2,command=lambda:controller.show_frame(Home))
