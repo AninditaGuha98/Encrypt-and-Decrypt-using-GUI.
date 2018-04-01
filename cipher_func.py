@@ -18,6 +18,7 @@ def caesar_encrypt(plaintext,key):
                 value+=26
             value=chr(value)
             answer_e = answer_e +value
+        print(answer_e)
         return(answer_e)
 
 def caesar_decrypt(ciphertext,key):
@@ -81,4 +82,4 @@ def OTP_decrypt(ciphertext, key):
     cipher = (char_ID - key_ID) % len(one_time_pad)
     char = otp[cipher]
 
-    return char + decrypt(ciphertext[1:], key[1:])
+    return char + OTP_decrypt(ciphertext[1:], key[1:])
