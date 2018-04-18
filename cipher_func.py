@@ -21,6 +21,10 @@ def caesar_encrypt(plaintext,key):
         print(answer_e)
         return(answer_e)
 
+
+
+
+
 def caesar_decrypt(ciphertext,key):
         answer_d=''
         for value in ciphertext:
@@ -173,6 +177,10 @@ def encrypt(message):
 			cipher.append(key_matrix[p2][q1])
 	return cipher
 
+
+
+
+   
 def cipher_to_digraphs(cipher):
 	i=0
 	new=[]
