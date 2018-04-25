@@ -245,13 +245,13 @@ class Decrypt_Frame(tk.Frame):
         Key_entry=tk.Entry(self,width=30)
         Key_entry.place(x=320,y=90)
 
-        def Decipher_Caesar():
+        def Decipher_Caesar():   #Deciphering caesar_cipher
             pt=ciphertext_entry.get()
             key=Key_entry.get()
             value=cipher_func.caesar_decrypt(pt,key)
             decypher_answer.configure(text=value)
 
-        def Decipher_Vigenere():
+        def Decipher_Vigenere():           #Deciphering Vigenere cipher
             pt=ciphertext_entry.get()
             key=Key_entry.get()
             value=cipher_func.vigenere_decipher(pt,key)
