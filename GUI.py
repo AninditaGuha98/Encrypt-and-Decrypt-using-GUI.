@@ -1,5 +1,5 @@
 __author__ = 'Anindita'
-import Tkinter as tk
+import tkinter as tk
 import cipher_func
 
 class main(tk.Tk):
@@ -35,13 +35,9 @@ class main(tk.Tk):
         self.frames = {}
 
         for F in (Home,Encrypt_Frame,Decrypt_Frame):
-
             frame = F(container, self)
-
             self.frames[F] = frame
-
             frame.grid(row=0, column=0, sticky="nsew")
-
         self.show_frame(Home)
 
     def show_frame(self, cont):
@@ -66,7 +62,7 @@ class Home(tk.Frame):
         def Leave_decrypt(enter=1):
             Button_decrypt.configure(bg="#5BC8AC")
 
-        w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
+        w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#FFFFFF")
         w.place(x=0,y=0)
         w.create_rectangle(85,130,270,275,width=7)
         w.create_rectangle(315,130,500,275,width=7)
@@ -93,9 +89,7 @@ class Encrypt_Frame(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
 
-
-
-        w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
+        w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#FFFFFF")
         w.place(x=0,y=0)
         w.create_line(0,125,1000,125,fill="Black",width=5)
         w.create_line(0,175,1000,175,fill="Black",width=5)
@@ -107,14 +101,6 @@ class Encrypt_Frame(tk.Frame):
 
         def leavecaesar_button(enter=1):
             Button_caesar.configure(bg="#5BC8AC")
-
-
-        def enterplayfair_button(enter=1):
-            Button_playfair.configure(bg="lavender")
-
-        def leaveplayfair_button(enter=1):
-            Button_playfair.configure(bg="#5BC8AC")
-
 
         def entervigenere_button(enter=1):
             Button_vigenere.configure(bg="lavender")
@@ -165,25 +151,20 @@ class Encrypt_Frame(tk.Frame):
         def Encipher_OTP():
             pt=plaintext_entry.get()
             key=Keye_entry.get()
-            value=cipher_func.OTP_encrypt(pt,key)
-            encryption_answer.configure(text=value)
+
+            # value=cipher_func.OTP_encrypt(pt,key)
+            # encryption_answer.configure(text=value)
 
 
         Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Caesar)
         Button_caesar.bind("<Enter>",entercaesar_button)
         Button_caesar.bind("<Leave>",leavecaesar_button)
-        Button_caesar.place(x=10,y=130)
-
-        Button_playfair=tk.Button(self,text="Playfair",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
-        Button_playfair.bind("<Enter>",enterplayfair_button)
-        Button_playfair.bind("<Leave>",leaveplayfair_button)
-        Button_playfair.place(x=130,y=130)
-
+        Button_caesar.place(x=20,y=130)
 
         Button_vigenere=tk.Button(self,text="Vigenere",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_Vigenere)
         Button_vigenere.bind("<Enter>",entervigenere_button)
         Button_vigenere.bind("<Leave>",leavevigenere_button)
-        Button_vigenere.place(x=250,y=130)
+        Button_vigenere.place(x=190,y=130)
 
 
         Button_otp=tk.Button(self,text="One Time Pad",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Encipher_OTP)
@@ -204,7 +185,7 @@ class Decrypt_Frame(tk.Frame):
         tk.Frame.__init__(self,parent)
 
 
-        w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#CCD1D9")
+        w=tk.Canvas(self,width=1000,height=500,highlightthickness=0,background="#FFFFFF")
         w.place(x=0,y=0)
         w.create_line(0,125,1000,125,fill="Black",width=5)
         w.create_line(0,175,1000,175,fill="Black",width=5)
@@ -214,10 +195,6 @@ class Decrypt_Frame(tk.Frame):
             Button_caesar.configure(bg="lavender")
         def leave_caesar(enter=1):
             Button_caesar.configure(bg="#5BC8AC")
-        def enter_playfair(enter=1):
-            Button_playfair.configure(bg="lavender")
-        def leave_playfair(enter=1):
-            Button_playfair.configure(bg="#5BC8AC")
 
         def enter_vigenere(enter=1):
             Button_vigenere.configure(bg="lavender")
@@ -260,25 +237,20 @@ class Decrypt_Frame(tk.Frame):
         def Decipher_OTP():
             pt=ciphertext_entry.get()
             key=Key_entry.get()
-            value=cipher_func.OTP_decrypt(pt,key)
-            decypher_answer.configure(text=value)
+            # value=cipher_func.OTP_decrypt(pt,key)
+            # decypher_answer.configure(text=value)
 
 
         Button_caesar=tk.Button(self,text="Caesar",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_Caesar)
         Button_caesar.bind("<Enter>",enter_caesar)
         Button_caesar.bind("<Leave>",leave_caesar)
-        Button_caesar.place(x=10,y=130)
+        Button_caesar.place(x=20,y=130)
 
-
-        Button_playfair=tk.Button(self,text="Playfair",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black")
-        Button_playfair.bind("<Enter>",enter_playfair)
-        Button_playfair.bind("<Leave>",leave_playfair)
-        Button_playfair.place(x=130,y=130)
 
         Button_vigenere=tk.Button(self,text="Vigenere",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_Vigenere)
         Button_vigenere.bind("<Enter>",enter_vigenere)
         Button_vigenere.bind("<Leave>",leave_vigenere)
-        Button_vigenere.place(x=250,y=130)
+        Button_vigenere.place(x=190,y=130)
 
 
         Button_otp=tk.Button(self,text="One Time Pad",width=13,height=2,font=("HELVETICA",10,"italic bold"),bd=0,relief="flat",background="#5BC8AC",fg="Black",command=Decipher_OTP)
